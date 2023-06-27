@@ -1,0 +1,43 @@
+{
+  "name": "nest-final-project-api",
+  "version": "1.0.0",
+  "description": "Final project for Nest Academy QA",
+  "main": "index.js",
+  "scripts": {
+    "postinstall": "link-module-alias",
+    "preinstall": "command -v link-module-alias && link-module-alias clean || true",
+    "test": "mocha tests/scenarios --reporter-options reportDir=reports"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bagusprakasa/nest-final-project-API.git"
+  },
+  "keywords": [
+    "Automation",
+    "Testing",
+    "API",
+    "Postman",
+    "Mocha",
+    "and",
+    "chai"
+  ],
+  "author": "bagusprakasa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bagusprakasa/nest-final-project-API/issues"
+  },
+  "homepage": "https://github.com/bagusprakasa/nest-final-project-API#readme",
+  "dependencies": {
+    "axios": "^1.4.0",
+    "chai": "^4.3.7",
+    "chai-json-schema": "^1.5.1",
+    "dotenv": "^16.3.1",
+    "link-module-alias": "^1.2.0",
+    "mocha": "^10.2.0",
+    "mochawesome": "^7.1.3"
+  },
+  "_moduleAliases": {
+    "$root": "tests",
+    "$helper": "tests/helper"
+  }
+}
