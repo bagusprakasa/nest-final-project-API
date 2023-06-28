@@ -46,4 +46,14 @@ describe("Update Booking", () => {
     assert.equal(response.status, 200);
     expect(response.data).to.be.jsonSchema(schema.VALID_SCHEMA_UPDATE_BOOKING);
   });
+  it("Should successfull partial update booking", async () => {
+    const response = await ResfulBooker.updatePartial(
+      data.SHOW_ID["id"],
+      data.UPDATE_PARTIAL
+    );
+    assert.equal(response.status, 200);
+    expect(response.data).to.be.jsonSchema(
+      schema.VALID_SCHEMA_UPDATE_PARTIAL_BOOKING
+    );
+  });
 });

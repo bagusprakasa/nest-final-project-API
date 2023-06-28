@@ -30,3 +30,8 @@ export const UPDATE = {
   },
   additionalneeds: "Breakfast",
 };
+
+export const UPDATE_PARTIAL = {
+  firstname: "James",
+  lastname: "Brown",
+};
