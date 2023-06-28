@@ -8,6 +8,7 @@ const BaseAPI = axios.create({
   headers: {
     "Content-Type": "application/json",
     Accept: "*/*",
+    Cookie: "token=fdae40c9610f149",
   },
   validateStatus: function () {
     return true;

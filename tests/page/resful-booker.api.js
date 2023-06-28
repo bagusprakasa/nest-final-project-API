@@ -5,6 +5,7 @@ const ResfulBooker = {
     BaseAPI.get(`/booking?firstname=${firstname}&lastname=${lastname}`),
   show: (id) => BaseAPI.get("/booking/" + id),
   store: (data) => BaseAPI.post("/booking", data),
+  update: (id, data) => BaseAPI.put("/booking/" + id, data),
 };
 
 export default ResfulBooker;

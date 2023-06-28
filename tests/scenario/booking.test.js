@@ -39,3 +39,11 @@ describe("Store Booking", () => {
     expect(response.data).to.be.jsonSchema(schema.VALID_SCHEMA_STORE_BOOKING);
   });
 });
+
+describe("Update Booking", () => {
+  it("Should successfull update booking", async () => {
+    const response = await ResfulBooker.update(data.SHOW_ID["id"], data.UPDATE);
+    assert.equal(response.status, 200);
+    expect(response.data).to.be.jsonSchema(schema.VALID_SCHEMA_UPDATE_BOOKING);
+  });
+});
