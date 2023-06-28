@@ -164,3 +164,50 @@ export const VALID_SCHEMA_UPDATE_BOOKING = {
     },
   },
 };
+
+export const VALID_SCHEMA_UPDATE_PARTIAL_BOOKING = {
+  type: "object",
+  default: {},
+  title: "Root Schema",
+  required: [
+    "firstname",
+    "lastname",
+    "totalprice",
+    "depositpaid",
+    "bookingdates",
+  ],
+  properties: {
+    firstname: {
+      type: "string",
+      default: "",
+    },
+    lastname: {
+      type: "string",
+      default: "",
+    },
+    totalprice: {
+      type: "integer",
+      default: 0,
+    },
+    depositpaid: {
+      type: "boolean",
+      default: false,
+    },
+    bookingdates: {
+      type: "object",
+      default: {},
+      title: "The bookingdates Schema",
+      required: ["checkin", "checkout"],
+      properties: {
+        checkin: {
+          type: "string",
+          default: "",
+        },
+        checkout: {
+          type: "string",
+          default: "",
+        },
+      },
+    },
+  },
+};
