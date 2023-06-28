@@ -9,30 +9,25 @@ chai.use(jsonSchema);
 
 describe("Get Booking Id", () => {
   it("Should successfull get booking id", async () => {
-    await ResfulBooker.getBookingId()
-      .then((response) => {
-        assert.equal(response.status, 200);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    const response = await ResfulBooker.getBookingId();
+    assert.equal(response.status, 200);
   });
   it("Should successfull get booking id with param", async () => {
     // var firstname = getParams(data.PARAM_DATA["firstname"]);
     // const lastname = getParams(data.PARAM_DATA["lastname"]);
-    await ResfulBooker.getBookingIdParam(
+    const response = await ResfulBooker.getBookingIdParam(
       data.PARAM_DATA["firstname"],
       data.PARAM_DATA["lastname"]
-    )
-      .then((response) => {
-        assert.equal(response.status, 200);
-        expect(response.data).to.be.jsonSchema(
-          schema.VALID_SCHEMA_GET_BOOKING_ID
-        );
-        console.log(response.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    );
+    assert.equal(response.status, 200);
+    expect(response.data).to.be.jsonSchema(schema.VALID_SCHEMA_GET_BOOKING_ID);
+  });
+});
+
+describe("Show Booking Id", () => {
+  it("Should successfull show booking id", async () => {
+    const response = await ResfulBooker.show(data.SHOW_ID["id"]);
+    assert.equal(response.status, 200);
+    expect(response.data).to.be.jsonSchema(schema.VALID_SCHEMA_SHOW_BOOKING);
   });
 });
