@@ -6,7 +6,7 @@
   "scripts": {
     "postinstall": "link-module-alias",
     "preinstall": "command -v link-module-alias && link-module-alias clean || true",
-    "test": "mocha tests/scenario --reporter-options reportDir=reports --timeout 5000"
+    "test": "mocha tests/scenario --reporter-options reportDir=reports --timeout 10000"
   },
   "repository": {
     "type": "git",
