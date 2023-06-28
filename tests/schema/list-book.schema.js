@@ -62,3 +62,55 @@ export const VALID_SCHEMA_SHOW_BOOKING = {
     },
   },
 };
+
+export const VALID_SCHEMA_STORE_BOOKING = {
+  type: "object",
+  default: {},
+  required: ["bookingid", "booking"],
+  properties: {
+    bookingid: {
+      type: "integer",
+      default: 0,
+    },
+    booking: {
+      type: "object",
+      default: {},
+      properties: {
+        firstname: {
+          type: "string",
+          default: "",
+        },
+        lastname: {
+          type: "string",
+          default: "",
+          totalprice: {
+            type: "integer",
+            default: 0,
+          },
+          depositpaid: {
+            type: "boolean",
+            default: false,
+          },
+          bookingdates: {
+            type: "object",
+            default: {},
+            properties: {
+              checkin: {
+                type: "string",
+                default: "",
+              },
+              checkout: {
+                type: "string",
+                default: "",
+              },
+            },
+          },
+          additionalneeds: {
+            type: "string",
+            default: "",
+          },
+        },
+      },
+    },
+  },
+};

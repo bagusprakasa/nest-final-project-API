@@ -31,3 +31,11 @@ describe("Show Booking Id", () => {
     expect(response.data).to.be.jsonSchema(schema.VALID_SCHEMA_SHOW_BOOKING);
   });
 });
+
+describe("Store Booking", () => {
+  it("Should successfull store booking", async () => {
+    const response = await ResfulBooker.store(data.STORE);
+    assert.equal(response.status, 200);
+    expect(response.data).to.be.jsonSchema(schema.VALID_SCHEMA_STORE_BOOKING);
+  });
+});
