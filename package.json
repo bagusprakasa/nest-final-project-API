@@ -6,7 +6,7 @@
   "scripts": {
     "postinstall": "link-module-alias",
     "preinstall": "command -v link-module-alias && link-module-alias clean || true",
-    "test": "mocha tests/scenarios --reporter-options reportDir=reports"
+    "test": "mocha tests/scenario --reporter-options reportDir=reports --timeout 5000"
   },
   "repository": {
     "type": "git",
@@ -23,6 +23,7 @@
   ],
   "author": "bagusprakasa",
   "license": "ISC",
+  "type": "module",
   "bugs": {
     "url": "https://github.com/bagusprakasa/nest-final-project-API/issues"
   },
