@@ -3,10 +3,6 @@ export const PARAM_DATA = {
   lastname: "Brown",
 };
 
-export const SHOW_ID = {
-  id: 2,
-};
-
 export const STORE = {
   firstname: "Jim",
   lastname: "Brown",
@@ -34,4 +30,9 @@ export const UPDATE = {
 export const UPDATE_PARTIAL = {
   firstname: "James",
   lastname: "Brown",
+};
+
+export const LOGIN = {
+  username: "admin",
+  password: "password123",
 };

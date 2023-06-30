@@ -3,16 +3,28 @@ import axios from "axios";
 
 dotenv.config();
 
-const BaseAPI = axios.create({
+export const BaseAPI = axios.create({
   baseURL: process.env.BASE_URL,
   headers: {
     "Content-Type": "application/json",
     Accept: "*/*",
-    Cookie: "token=493c44419d133d7",
   },
   validateStatus: function () {
     return true;
   },
 });
 
-export default BaseAPI;
+export const BaseAPIToken = (token) =>
+  axios.create({
+    baseURL: process.env.BASE_URL,
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "*/*",
+      Cookie: "token=" + token,
+    },
+    validateStatus: function () {
+      return true;
+    },
+  });
+
+// export default BaseAPI;

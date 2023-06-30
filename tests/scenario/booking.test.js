@@ -7,6 +7,13 @@ import * as schema from "$root/schema/list-book.schema";
 
 chai.use(jsonSchema);
 
+describe("Login", () => {
+  it("Should successfull login", async () => {
+    const response = await ResfulBooker.login(data.LOGIN);
+    assert.equal(response.status, 200);
+    global.token = response.data.token;
+  });
+});
 describe("Get Booking Id", () => {
   it("Should successfull get booking id", async () => {
     const response = await ResfulBooker.getBookingId();
@@ -24,32 +31,38 @@ describe("Get Booking Id", () => {
   });
 });
 
-describe("Show Booking Id", () => {
-  it("Should successfull show booking id", async () => {
-    const response = await ResfulBooker.show(data.SHOW_ID["id"]);
-    assert.equal(response.status, 200);
-    expect(response.data).to.be.jsonSchema(schema.VALID_SCHEMA_SHOW_BOOKING);
-  });
-});
-
 describe("Store Booking", () => {
   it("Should successfull store booking", async () => {
     const response = await ResfulBooker.store(data.STORE);
     assert.equal(response.status, 200);
     expect(response.data).to.be.jsonSchema(schema.VALID_SCHEMA_STORE_BOOKING);
+    global.bookingid = response.data.bookingid;
+  });
+});
+
+describe("Show Booking Id", () => {
+  it("Should successfull show booking id", async () => {
+    const response = await ResfulBooker.show(global.bookingid);
+    assert.equal(response.status, 200);
+    expect(response.data).to.be.jsonSchema(schema.VALID_SCHEMA_SHOW_BOOKING);
   });
 });
 
 describe("Update Booking", () => {
   it("Should successfull update booking", async () => {
-    const response = await ResfulBooker.update(data.SHOW_ID["id"], data.UPDATE);
+    const response = await ResfulBooker.update(
+      global.bookingid,
+      data.UPDATE,
+      global.token
+    );
     assert.equal(response.status, 200);
     expect(response.data).to.be.jsonSchema(schema.VALID_SCHEMA_UPDATE_BOOKING);
   });
   it("Should successfull partial update booking", async () => {
     const response = await ResfulBooker.updatePartial(
-      data.SHOW_ID["id"],
-      data.UPDATE_PARTIAL
+      global.bookingid,
+      data.UPDATE_PARTIAL,
+      global.token
     );
     assert.equal(response.status, 200);
     expect(response.data).to.be.jsonSchema(
