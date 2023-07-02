@@ -1,18 +1,18 @@
 export const PARAM_DATA = {
-  firstname: "Jim",
-  lastname: "Brown",
+  firstname: "User",
+  lastname: "Testing",
 };
 
 export const STORE = {
-  firstname: "Jim",
-  lastname: "Brown",
+  firstname: "User",
+  lastname: "Testing",
   totalprice: 111,
   depositpaid: true,
   bookingdates: {
-    checkin: "2018-01-01",
-    checkout: "2019-01-01",
+    checkin: "2023-01-01",
+    checkout: "2023-05-06",
   },
-  additionalneeds: "Breakfast",
+  additionalneeds: "TestTest123",
 };
 
 export const INVALID_STORE = {
@@ -27,20 +27,20 @@ export const INVALID_STORE = {
 };
 
 export const UPDATE = {
-  firstname: "James",
-  lastname: "Brown",
-  totalprice: 111,
+  firstname: "User123",
+  lastname: "Testing123",
+  totalprice: 111123,
   depositpaid: true,
   bookingdates: {
-    checkin: "2018-01-01",
-    checkout: "2019-01-01",
+    checkin: "2023-02-01",
+    checkout: "2023-06-01",
   },
-  additionalneeds: "Breakfast",
+  additionalneeds: "TestTest12345",
 };
 
 export const UPDATE_PARTIAL = {
-  firstname: "James",
-  lastname: "Brown",
+  firstname: "User456",
+  lastname: "Testing456",
 };
 
 export const LOGIN = {
