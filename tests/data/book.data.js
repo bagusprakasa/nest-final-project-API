@@ -52,3 +52,7 @@ export const INVALID_LOGIN = {
   username: "qq",
   password: "qq",
 };
+
+export const ID = {
+  id: 0,
+};
