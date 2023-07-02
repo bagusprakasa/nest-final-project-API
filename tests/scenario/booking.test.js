@@ -60,6 +60,15 @@ describe("Show Booking Id", () => {
 });
 
 describe("Update Booking", () => {
+  it("Should failure update booking", async () => {
+    const response = await ResfulBooker.update(
+      global.bookingid,
+      data.UPDATE_PARTIAL,
+      global.token
+    );
+    assert.equal(response.status, 400);
+    assert.equal(response.data, "Bad Request");
+  });
   it("Should successfull update booking", async () => {
     const response = await ResfulBooker.update(
       global.bookingid,
