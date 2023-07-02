@@ -15,6 +15,17 @@ export const STORE = {
   additionalneeds: "Breakfast",
 };
 
+export const INVALID_STORE = {
+  lastname: "Testing",
+  totalprice: 111,
+  depositpaid: true,
+  bookingdates: {
+    checkin: "2023-01-01",
+    checkout: "2023-05-06",
+  },
+  additionalneeds: "TestTest123",
+};
+
 export const UPDATE = {
   firstname: "James",
   lastname: "Brown",

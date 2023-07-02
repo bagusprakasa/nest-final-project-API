@@ -14,6 +14,21 @@ describe("Login", () => {
     global.token = response.data.token;
   });
 });
+
+describe("Store Booking", () => {
+  it("Should failure store booking", async () => {
+    const response = await ResfulBooker.store(data.INVALID_STORE);
+    assert.equal(response.status, 500);
+    assert.equal(response.data, "Internal Server Error");
+  });
+  it("Should successfull store booking", async () => {
+    const response = await ResfulBooker.store(data.STORE);
+    assert.equal(response.status, 200);
+    expect(response.data).to.be.jsonSchema(schema.VALID_SCHEMA_STORE_BOOKING);
+    global.bookingid = response.data.bookingid;
+  });
+});
+
 describe("Get Booking Id", () => {
   it("Should successfull get booking id", async () => {
     const response = await ResfulBooker.getBookingId();
@@ -28,15 +43,6 @@ describe("Get Booking Id", () => {
     );
     assert.equal(response.status, 200);
     expect(response.data).to.be.jsonSchema(schema.VALID_SCHEMA_GET_BOOKING_ID);
-  });
-});
-
-describe("Store Booking", () => {
-  it("Should successfull store booking", async () => {
-    const response = await ResfulBooker.store(data.STORE);
-    assert.equal(response.status, 200);
-    expect(response.data).to.be.jsonSchema(schema.VALID_SCHEMA_STORE_BOOKING);
-    global.bookingid = response.data.bookingid;
   });
 });
 
