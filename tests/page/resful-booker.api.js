@@ -10,6 +10,7 @@ const ResfulBooker = {
     api.BaseAPIToken(token).put("/booking/" + id, data),
   updatePartial: (id, data, token) =>
     api.BaseAPIToken(token).patch("/booking/" + id, data),
+  delete: (id, token) => api.BaseAPIToken(token).delete("/booking/" + id),
 };
 
 export default ResfulBooker;

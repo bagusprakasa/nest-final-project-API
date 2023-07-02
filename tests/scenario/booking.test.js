@@ -90,3 +90,16 @@ describe("Update Booking", () => {
     );
   });
 });
+
+describe("Delete Booking", () => {
+  it("Should failure delete booking", async () => {
+    const response = await ResfulBooker.delete(data.ID["id"], global.token);
+    assert.equal(response.status, 405);
+    assert.equal(response.data, "Method Not Allowed");
+  });
+  it("Should successfull delete booking", async () => {
+    const response = await ResfulBooker.delete(global.bookingid, global.token);
+    assert.equal(response.status, 201);
+    assert.equal(response.data, "Created");
+  });
+});
