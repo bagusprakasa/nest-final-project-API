@@ -36,3 +36,8 @@ export const LOGIN = {
   username: "admin",
   password: "password123",
 };
+
+export const INVALID_LOGIN = {
+  username: "qq",
+  password: "qq",
+};

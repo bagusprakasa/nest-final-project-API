@@ -8,6 +8,11 @@ import * as schema from "$root/schema/list-book.schema";
 chai.use(jsonSchema);
 
 describe("Login", () => {
+  it.only("Should failure login", async () => {
+    const response = await ResfulBooker.login(data.INVALID_LOGIN);
+    assert.equal(response.status, 200);
+    assert.equal(response.data.reason, "Bad credentials");
+  });
   it("Should successfull login", async () => {
     const response = await ResfulBooker.login(data.LOGIN);
     assert.equal(response.status, 200);
